@@ -1,0 +1,100 @@
+.app-shell {
+  min-height: 100svh;
+  background: #f7f9fb;
+}
+
+.app-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px;
+  border-bottom: 1px solid #dbe3ea;
+  background: #ffffff;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #46735d;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-main {
+  padding: 32px;
+}
+
+.nav-link {
+  color: #304156;
+  border: 1px solid #cfd9e2;
+}
+
+.nav-link.active {
+  background: #204e43;
+  border-color: #204e43;
+}
+
+.resource-panel {
+  background: #ffffff;
+  border: 1px solid #dbe3ea;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: left;
+  box-shadow: 0 16px 40px rgba(17, 35, 53, 0.08);
+}
+
+.resource-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.resource-heading h2 {
+  margin-bottom: 6px;
+}
+
+.api-endpoint {
+  margin: 0 0 20px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #edf3f0;
+  color: #204e43;
+  font-family: var(--mono);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.state-message {
+  padding: 18px;
+  border: 1px dashed #b8c7d4;
+  border-radius: 6px;
+  color: #526171;
+  background: #fbfcfd;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .app-header {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 24px 16px;
+  }
+
+  .app-main {
+    padding: 16px;
+  }
+
+  .resource-heading {
+    flex-direction: column;
+  }
+}
