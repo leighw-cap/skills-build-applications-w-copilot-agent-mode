@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { apiBaseUrl, fetchResource } from '../api.js'
+import { fetchResource } from '../api.js'
 
-function ResourceView({ resourceName, title, description }) {
+function ResourceView({ resourceName, title, description, apiEndpoint }) {
   const [items, setItems] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -14,7 +14,7 @@ function ResourceView({ resourceName, title, description }) {
       try {
         setStatus('loading')
         setError('')
-        const nextItems = await fetchResource(resourceName)
+        const nextItems = await fetchResource(resourceName, apiEndpoint)
 
         if (!ignore) {
           setItems(nextItems)
@@ -33,7 +33,7 @@ function ResourceView({ resourceName, title, description }) {
     return () => {
       ignore = true
     }
-  }, [resourceName])
+  }, [apiEndpoint, resourceName])
 
   return (
     <section className="resource-panel">
@@ -45,7 +45,7 @@ function ResourceView({ resourceName, title, description }) {
         <span className="badge text-bg-light">{items.length} records</span>
       </div>
 
-      <p className="api-endpoint">{apiBaseUrl}/{resourceName}/</p>
+      <p className="api-endpoint">{apiEndpoint}</p>
 
       {status === 'loading' && <p className="state-message">Loading...</p>}
       {status === 'error' && <p className="state-message text-danger">{error}</p>}

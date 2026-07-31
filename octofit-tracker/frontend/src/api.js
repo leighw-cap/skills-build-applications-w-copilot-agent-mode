@@ -2,8 +2,8 @@ export const apiBaseUrl = import.meta.env.VITE_CODESPACE_NAME
   ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api`
   : 'http://localhost:8000/api'
 
-export async function fetchResource(resourceName) {
-  const response = await fetch(`${apiBaseUrl}/${resourceName}/`)
+export async function fetchResource(resourceName, apiEndpoint = `${apiBaseUrl}/${resourceName}/`) {
+  const response = await fetch(apiEndpoint)
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)
